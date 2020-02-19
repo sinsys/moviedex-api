@@ -14,20 +14,20 @@ const morganSetting =
     : 'common';
 
 app.use(
-  morgan('tiny'),
+  morgan(morganSetting),
   helmet(),
   cors(),
-  authRequest
+  serverFuncs.authRequest
 );
 
 app.get(
   '/',
-  testAuthAtRoot
+  serverFuncs.testAuthAtRoot
 );
 
 app.get(
   '/movies',
-  getMovies
+  serverFuncs.getMovies
 );
 
 // Error handling middleware
