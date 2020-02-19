@@ -16,11 +16,8 @@ testParam = (val, type) => {
 // Request, Response functions
 // Authentication middleware
 authRequest = (req, res, next) => {
-  // const authToken = req.get('Authorization');
-  // const apiToken = process.env.API_TOKEN;
-
-  const authToken = "Bearer fake_auth_token"; // This will be sent from the client via an Authorization header
-  const apiToken = "fake_auth_token"; // This will be stored secretly on the server
+  const authToken = req.get('Authorization');
+  const apiToken = process.env.API_TOKEN;
   
   if (
     !authToken ||
